@@ -1,10 +1,10 @@
 import React from "react";
 
 const AppView = (props) => {
+    const {} = props;
     return (
     <div className="App">
         <header className="App-header">
-            Hello
         </header>
     </div>
     )

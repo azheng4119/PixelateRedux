@@ -5,23 +5,38 @@ const ADD_COLUMN = "ADD_COLUMN";
 const REMOVE_COLUMN = "REMOVE_COLUMN";
 
 // ACTION CREATOR;
-const addRow = () => {
+export const addRow = () => {
     return {
         type : ADD_ROW
     }
 }
-const removeRow = () => {
+export const removeRow = () => {
     return {
         type : REMOVE_ROW
     }
 }
-const addColumn = () => {
+export const addColumn = () => {
     return {
         type : ADD_COLUMN
     }
 }
-const removeColumn = () => {
+export const removeColumn = () => {
     return {
         type : REMOVE_COLUMN
+    }
+}
+
+export default (state = [], action) => {
+    switch (action.type) {
+        case ADD_ROW:
+            return state.push([]);
+        case ADD_COLUMN:
+            return state.map((item)=> item.push('cell'));
+        case REMOVE_ROW:
+            return state.pop();
+        case REMOVE_COLUMN:
+            return state.map((item)=> item.pop());
+        default:
+            return state;
     }
 }
